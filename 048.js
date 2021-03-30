@@ -58,33 +58,42 @@
 // new 하면 return 없어도 새로운 객체가 반환 됨 
 
 //50. 프로토타입 기반 상속 이해하기 
-
+// 모든 함수는 prototype 속성으로 프로토타입 객체를 가짐. __proto__속성은 해당 객체를 생성한 생성자 함수의 prototype 객체를 가리킴.
 function Storage(){
     this.dataStore= {};
 } // 생성자 함수를 정의함 내부속성으로 dataStore 빈객체를 할당 
 
+// put 메소드 추가 , 속성 할당 
 Storage.prototype.put = function(key,data){
     this.dataStore[key] = data;
-}
+} 
+// getData메소드 추가, 매개변수의 값을 키로 하여 datStore속성에 반환
 Storage.prototype.getData = function(key){
     return this.dataStore[key];
-}
+} // 
 
-const productStorage = new Storage();
+const productStorage = new Storage(); // 인스턴스생성, 해당 생성자의 프로토 타입을 상속, 프로토타입에 정의된 인스턴스를 사용할 수 있음 
 productStorage.put('id001',{name:'키보드',price:2000});
 console.log(productStorage.getData('id001'));
 
+
+//RemovableStorage 생성자 함수를 정의 
+// Storage함수를 호출하면서 this 를 전달하게 되는데 , this에 Storage 생성자함수에서 정의한대로 dataStore가 속성으로 추가됨.
 function RemovableStorage(){
     Storage.call(this);
 }
 
-RemovableStorage.prototype = Object.create(Storage.prototype);
+
+RemovableStorage.prototype = Object.create(Storage.prototype);  // __proto__에 연결한 새로운 객체를 반환, Object.create를 이용하여 상속관계를 형성 
+
 RemovableStorage.prototype.removeAll = function(){
     this.dataStore={}
 }
 
 const productStorage2 = new RemovableStorage();
+
 productStorage2.put('id001',{name:'키보드',price:2000});
+console.log(productStorage2)
 productStorage2.removeAll();
-const item2 = productStorage2.getDat('id001');
+const item2 = productStorage2.getData('id001');
 console.log(item2);
