@@ -60,8 +60,8 @@
 //50. 프로토타입 기반 상속 이해하기 
 
 function Storage(){
-    this.dataStor= {};
-}
+    this.dataStore= {};
+} // 생성자 함수를 정의함 내부속성으로 dataStore 빈객체를 할당 
 
 Storage.prototype.put = function(key,data){
     this.dataStore[key] = data;
