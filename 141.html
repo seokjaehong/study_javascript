@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">hello Dom</div>
+    <ul>
+        <li>list item1</li>
+        <li>list item2</li>
+    </ul>
+    <script>
+        const div1El = document.getElementById("div1");
+        console.log(div1El.innerHTML);
+
+        console.log(div1El.nodeType);
+        console.log(div1El.nodeType === Node.ELEMENT_NODE);
+
+        console.log(div1El.construnctor);
+
+
+    </script>
+</body>
+</html>

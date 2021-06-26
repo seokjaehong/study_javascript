@@ -82,16 +82,72 @@
 //126.MAP 객체 요소 추가 
 // 키-값 ( 다양한 자료형 값으로 정의 가능 )
 /// 반복가능 객체로 Symbol.iterator이 기본적으로 정의 
+// const map = new Map();
+// map.set('one',1);
+// map.set('two',2);
+
+// console.log(map.get('one')); //
+// console.log(map.has('one'));
+// map.delete('one');
+
+// console.log(map.get('one'));
+// console.log(map.has('one'));
+
+
+//127. map 객체 크기 확인 
+
+// const map = new Map();
+// map.set('one',1);
+// map.set(2,'two');
+// map.set([1,2,3], 'Three elements');
+// map.set({a:'A', b:'B'}, 'object element');
+// map.set(function(){}, 'function element');
+
+// console.log(map.size);
+// console.log(map.get({a:'A', b:'B'}))
+
+// const keys = map.keys();
+// const values = map.values();
+// const entries = map.entries();
+
+// console.log(keys.next().value);
+// console.log(values.next().value);
+// console.log(entries.next().value);
+
+// console.log(keys);
+// console.log(values);
+// console.log(entries);
+
+// for (let k of map.keys()){
+//     console.log(k)
+// }
+
+// for (let [key,value] of map.entries()){
+//     console.log(key,value);
+// }
+
+// map.forEach((value,key) => {
+//     console.log(key,value)
+// })
+
+//129. Map 객체 순환 
 const map = new Map();
 map.set('one',1);
 map.set('two',2);
 
-console.log(map.get('one')); //
-console.log(map.has('one'));
-map.delete('one');
+// for (let m of map){
+//     console.log(m)
+// }
 
-console.log(map.get('one'));
-console.log(map.has('one'));
+// for (let key of map.keys()){
+//     console.log(key)
+// }
 
+// for (let [key,value] of map.entries()){
+//     console.log(key,value)
+// }
 
-//127
+// map.forEach((value,key) => {
+//     console.log(key,value)
+// })
+
